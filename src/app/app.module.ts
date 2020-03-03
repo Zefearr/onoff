@@ -1,36 +1,68 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
- 
+import { NabvarComponent } from './nabvar/nabvar.component';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore } from '@angular/fire/firestore'; 
-
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-const config = { 
-  apiKey: "AIzaSyDjjApBTKdJ2WzhY6-NJECk6I1BxNEZlpA",
-  authDomain: "onoff-b83d6.firebaseapp.com",
-  databaseURL: "https://onoff-b83d6.firebaseio.com",
-  projectId: "onoff-b83d6", 
-  storageBucket: "onoff-b83d6.appspot.com",
-  messagingSenderId: "502353735635",
-  appId: "1:502353735635:web:70201b5b269ad49c4b8926",
-  measurementId: "G-QC0N7Z7D29"
-}
+import { HomeComponent } from './home/home.component';
+import { ItemComponent } from './item/item.component';
+import { ItemsComponent } from './items/items.component';
+import { TvsComponent } from './tvs/tvs.component';
+import { PhonesComponent } from './phones/phones.component';
+import { SwatchesComponent } from './swatches/swatches.component';
+import { HeadphonesComponent } from './headphones/headphones.component';
+
+import { SwatchService } from './swatch.service';
+import { FormsModule } from '@angular/forms';
+import { AddSwatchComponent } from './add-swatch/add-swatch.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NabvarComponent,
+    HomeComponent,
+    ItemComponent,
+    ItemsComponent,
+    TvsComponent,
+    PhonesComponent,
+    SwatchesComponent,
+    HeadphonesComponent,
+    AddSwatchComponent,
+    LoginComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule, // dynamically imports firebase/analytics
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    FormsModule,
+    NgxExtendedPdfViewerModule
+  
+    
+
+   
+     
+  
   
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SwatchService, AuthService],
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }

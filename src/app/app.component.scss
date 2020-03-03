@@ -1,0 +1,46 @@
+#main {
+  margin-left:5rem;
+    // background-color:#F8F8F8;
+    &::after {
+        content:'';
+        display:block;
+        clear: both;
+    }
+}
+.navbar-wrapper  {
+    float:left;
+    position: relative;
+    
+}
+.router-wrapper {
+    padding:12pt;
+   
+   
+    // box-shadow:1px 3px 4px rgb(168, 187, 197) inset;
+}
+.dropzone { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    min-width: 80vw;
+    font-weight: 200;
+    height: 300px;
+    border: 2px dashed #f16624;
+    border-radius: 5px;
+    background: white;
+    margin: 10px 0;
+  
+    &.hovering {
+        border: 2px solid #f16624;
+        color: #dadada !important;
+    }
+  
+    .file-label {
+        font-size: 1.2em;
+    }
+  }
+  
+  progress::-webkit-progress-value {
+    transition: width 0.1s ease;
+  }

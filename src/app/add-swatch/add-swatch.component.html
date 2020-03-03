@@ -1,0 +1,19 @@
+<div class="Form-wrapper">
+    <form (ngSubmit)="onSubmit()" class="addSwatchForm">
+        <div class="addSwatchForm--input">
+            <input type="text" placeholder="add name" name="name" [(ngModel)]="item.name">
+
+        </div>
+        <div class="addSwatchForm--input">
+            <input type="text" placeholder="add Image" name="imageUrl" [(ngModel)]="item.imageUrl">
+
+        </div>
+
+        <div class="addSwatchForm--input">
+            <input type="text" placeholder="add Category" name="category" [(ngModel)]="item.category">
+
+        </div>
+
+        <input class="btn--submit" type="submit" value="Submit">
+</form>
+</div>

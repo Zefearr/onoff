@@ -1,0 +1,137 @@
+.item-container {
+    position: relative;
+    overflow: hidden;
+    // display:grid;
+    // grid-template-columns: repeat(6, 1fr);
+    // grid-gap: 12pt;
+}
+.items-wrapper {
+     display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6pt;
+    @media screen and (max-width: 1280px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 760px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.item:nth-child(2n+3) {
+    background-color:#efeae9;
+}
+.item:nth-child(even) {
+    background-color:#e9ebef;
+}
+.item {
+    position: relative;
+    background-color:#fff;
+    overflow: hidden;
+    box-shadow:2px 2px 3px lightgray;
+    padding-top:12pt;
+    img {
+        width:100%;
+        margin:auto;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: 1;
+        
+    }
+    // span {
+    //     background-color:gray;
+    //     color:#fefefe;
+    //     font-size:12pt;
+    //     padding:12pt 12pt;
+    //     float:left;
+    //     display:block;
+    //     margin-right:12pt;
+    // }
+    h2 {
+        text-align:center;
+        font-weight:700;
+        font-size:24pt;
+        color:#999;
+    }
+    p {
+       
+        border-bottom:1px solid lightgray;
+        overflow: hidden;
+        padding-bottom:4px;
+      
+    }
+    &:hover {
+        background-color:#dedde6;
+        cursor: pointer;
+        transition:.3s all ease;
+        transform:translateY(-1px);
+        box-shadow:3px 3px 6px lightgray;
+    }
+}
+.swatches_filters {
+    background-color:lightgray;
+}
+
+.category-filters {
+    position: relative;
+    margin:0;
+    padding:0;
+    text-align: center;
+    margin-bottom:12pt;
+    li {
+        display:inline-block;
+        padding:12pt 24pt;
+        cursor: pointer;
+        list-style:none;
+        font-size:14pt;
+        font-weight:700;
+    }
+    li.clear {
+        border:1px solid #fff;
+        background-color:#fff;
+        color:#222;
+        padding:5pt 6pt;
+        font-size:10pt;
+        position: absolute;
+        right:12pt;
+        top:50%;
+        transform:translateY(-50%);
+      }
+}
+.btn--delete {
+    display:block;
+    position: absolute;
+    width:40px;
+    height:40px;
+    right:0;
+    top:0;
+    color:#fff;
+    background-color:#333;
+    cursor: pointer;
+}
+.btn {
+    cursor: pointer;
+    padding:12pt;
+}
+.item--actions {
+    overflow: hidden;
+    width:100px;
+    height:100px;
+    position: absolute;
+    right:0;
+    top:0;
+    height:60px;
+    z-index: 2;
+    transition:.1s all ease;
+
+}
+#item--controls {
+    position: absolute;
+    top:5pt;
+    right:10pt;
+    font-size:24pt;
+    font-weight: 900;
+    &:hover {
+        color:gray;
+    }
+    
+}

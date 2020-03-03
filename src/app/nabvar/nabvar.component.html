@@ -1,0 +1,19 @@
+
+   <nav class="navbar navbar-default" id="menu" [@menuState]="state">
+
+   <span class="main-menu-toggler" (click)="toggleMenu()"> <span class="main-menu-toggler__mid"></span> </span>
+   <ul class="navbar-menu">
+    <li><a routerLinkActive="" routerLink="/">Home</a></li>
+    <li> <span id="tv"></span><a routerLinkActive="active current" routerLink="/swatches" >Swatches</a></li>
+    <li><a routerLinkActive="active current" routerLink="/tvs" >TV`s</a></li>
+    <li><a routerLinkActive="active current" routerLink="/phones" >SmartPhones</a></li>
+    <li><a routerLinkActive="active current" routerLink="/login" >Login</a></li>
+    <li><a routerLinkActive="active current" routerLink="/pdf" >Login</a></li>
+
+
+
+    <!-- <li><a routerLinkActive="active current" routerLink="items/:id" >SmartTV`S</a></li> -->
+    <li><a >LapTops</a></li>
+    <li><a >Headphones</a></li>
+   </ul> 
+</nav>

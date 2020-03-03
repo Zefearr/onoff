@@ -1,0 +1,20 @@
+.Form-wrapper {
+    background-color:#fff;
+    padding:12pt;
+    margin-bottom:12pt;
+    input {
+        margin-bottom:24pt;
+        width:100%;
+        padding:8pt 12pt;
+        font-size:18pt;
+        border-radius: 5px;
+    }
+}
+.btn--submit {
+        max-width:300px;
+        background-color:#222;
+        color:#fff;
+        border-radius: 5px;
+        border:none;
+        outline:none;
+}

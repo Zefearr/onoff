@@ -1,0 +1,64 @@
+<ng-template #loading>
+asd</ng-template>
+<app-add-swatch></app-add-swatch>
+
+<div class="item-container" *ngIf="items?.length > 0;  else loading">
+    <div class="swatches_filters" *ngIf="items.length !== null">
+        <ul class="category-filters"> 
+            <li  (click)="swatchService.filterByCategory('bracelet')">Bracelet</li>
+            <li  (click)="swatchService.filterByCategory('classic')">Classic</li>
+            <!-- <li class="" [class.active]="swatchService.categoryFilter$.value === 'samsung'" (click)="swatchService.filterByCategory('samsung')">Samsung</li> -->
+            <li (click)="swatchService.filterByName('fitbit')">fitbit</li>
+            <li [class.active]="swatchService.categoryFilter$.value === 'samsung'" (click)="swatchService.filterByName('samsung')">samsung</li>
+            <li (click)="swatchService.filterByName('acme')">acme</li>
+            <li (click)="swatchService.filterByName('polar')">polar</li>
+            <li   (click)="swatchService.filterByName('garmin')">garmin</li>
+
+
+            <li class="clear" > <a (click)="swatchService.combineFilters(null)">Clear Filters</a></li> 
+        </ul>
+      
+
+    </div>
+    <div class="items-wrapper">
+        <div class="item" *ngFor="let item of items; let i = index">
+           
+           
+            <div id="item--controls-wrapper" class="item--actions"> 
+                <a class="btn btn--delete" (click)="deleteItem($event, item)">X</a>
+                <a class="btn btn--edit" (click)="editItem($event, item)">Edit</a>
+                <a *ngIf="editState && itemToEdit.id == item.id" (click)="clearState()">clear</a>
+                
+            </div>
+            <img *ngIf="item.imageUrl" [src]="item.imageUrl">
+             <h2>  {{item.name}} </h2>
+             <h2>  {{item.type}} </h2>
+            <div innerHtml="{{item.category}}"></div>
+             <div *ngIf="editState && itemToEdit.id == item.id">
+                <form (ngSubmit)="updateItem(item)">
+                    <div class="addSwatchForm--input">
+                        <span>name</span><input type="text" placeholder="add name" name="name" [(ngModel)]="item.name">
+            
+                    </div>
+                    <div class="addSwatchForm--input">
+                        <span>ImageUrl</span> <input type="text" placeholder="add Image" name="imageUrl" [(ngModel)]="item.imageUrl">
+            
+                    </div>
+            
+                    <div class="addSwatchForm--input">
+                        <span>Type</span> <input type="text" placeholder="add Category" name="category" [(ngModel)]="item.category">
+            
+                    </div>
+                </form>
+             </div>
+
+            <!-- <p> <span>Smart?</span> {{item.isSmart}} </p> 
+            <p> <span>Item features</span> {{item.features}} </p>
+            <p> <span>Item type</span> {{item.type}} </p>  -->
+        </div>
+    </div>
+  
+   
+</div>
+
+<div id="check"></div>
